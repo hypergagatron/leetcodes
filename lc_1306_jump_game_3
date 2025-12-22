@@ -1,0 +1,11 @@
+class Solution {
+    fun canReach(arr: IntArray, i: Int): Boolean {
+        if (i !in arr.indices || arr[i]<0) return false
+        
+        if (arr[i] == 0) return true
+        val value = arr[i]
+        arr[i] = -arr[i]
+
+        return canReach(arr, i-value) || canReach(arr, i+value)
+    }
+}
